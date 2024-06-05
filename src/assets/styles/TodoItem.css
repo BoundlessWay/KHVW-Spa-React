@@ -1,0 +1,32 @@
+/* TodoItem.css */
+
+
+
+.todo-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.todo-item span {
+    font-size: 1rem;
+}
+
+.todo-item button {
+    background: none;
+    border: none;
+    color: #f44336;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.todo-item button:hover {
+    color: #d32f2f;
+}
+
+.todo-item:last-child {
+    border-bottom: none;
+}
