@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShareAlt, faEye, faEllipsisH, faRedo, faLifeRing, faBell, faSearch, faArrowUp, faTrash } from '@fortawesome/free-solid-svg-icons';
 import '../../assets/styles/MyList.css';
 import { v4 as uuidv4 } from 'uuid';
+import DetailTask from '../../components/DetailTask/DetailTask';
 
 const MyList = () => {
     const location = useLocation();
@@ -103,9 +104,7 @@ const MyList = () => {
                         </button>
                     </div>
                 </div>
-                <div className="detailTask">
-                    {selectedTask && <div>Details of {selectedTask.content}</div>}
-                </div>
+                {selectedTask && <DetailTask taskId={selectedTask.id} listType={listType} />}
             </div>
         </div>
     );

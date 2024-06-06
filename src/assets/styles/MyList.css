@@ -19,6 +19,7 @@
     background-color: #161616;
     height: 40px;
     border-radius: 30px;
+    color: #ddd;
 }
 
 .toolbar-left {
@@ -37,10 +38,21 @@
     align-items: center;
 }
 
+.toolbar-left span:first-child {
+    font-weight: bold;
+    color: #e4e4e4;
+}
+
 .toolbar-left span,
 .toolbar-right span {
     margin: 0 5px;
     line-height: 100%;
+}
+
+.toolbar-left span:hover,
+.toolbar-right span:hover {
+    color: #0056b3;
+    cursor: pointer;
 }
 
 .divider {
@@ -57,8 +69,7 @@
 
 }
 
-.addTask,
-.detailTask {
+.addTask {
     flex: 1;
     width: 450px;
     background-color: #161616;
@@ -119,9 +130,7 @@
     color: #0056b3;
 }
 
-.detailTask {
-    margin-left: 16px;
-}
+
 
 .task-item {
     padding: 10px;

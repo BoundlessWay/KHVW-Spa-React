@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHouse, faCalendarDay, faCalendarWeek, faTasks, faListAlt, faTags } from '@fortawesome/free-solid-svg-icons';
+import { faHouse, faCalendarDay, faCalendarWeek, faTasks } from '@fortawesome/free-solid-svg-icons';
 import '../../assets/styles/Sidebar.css';
 
 const Sidebar = () => {
@@ -48,7 +48,7 @@ const Sidebar = () => {
             <ul>
                 <li>
                     <FontAwesomeIcon icon={faHouse} />
-                    <NavLink to="/">Home</NavLink><span class="task-count">5</span>
+                    <NavLink to="/">Home</NavLink>
                 </li>
                 <li>
                     <FontAwesomeIcon icon={faCalendarDay} />

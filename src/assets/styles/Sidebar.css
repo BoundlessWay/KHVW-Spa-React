@@ -107,3 +107,9 @@
 }
 
 
+.sidebar ul li a:focus + .task-count {
+    background-color: #007bff;
+    color: white;
+}
+
+
