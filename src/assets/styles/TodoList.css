@@ -1,18 +1,17 @@
 /* Container chính cho Todo List */
 .todo-container {
-    width: 90%;
-    max-width: 600px;
-    margin: 50px auto;
-    background: #fff;
+
+    background: #555;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     padding: 20px;
+    
 }
 
 /* Tiêu đề Todo List */
 .todo-container h1 {
     font-size: 2rem;
-    color: #333;
+    color:#fff;
     text-align: center;
     margin-bottom: 20px;
 }
