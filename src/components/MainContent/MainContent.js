@@ -19,7 +19,7 @@ function MainContent() {
                 <Route path="/myday" element={<MyDay />} />
                 <Route path="/next7days" element={<Next7Days />} />
                 <Route path="/alltasks" element={<AllTasks />} />
-                <Route path="/mylist" element={<MyList />} />
+                <Route path="/mylist/*" element={<MyList />} />
                 <Route path="/tags" element={<TodoList />} />
             </Routes>
         </div>

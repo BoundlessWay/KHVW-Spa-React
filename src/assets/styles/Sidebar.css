@@ -28,29 +28,36 @@
 }
 
 
+
 .sidebar ul li {
+    display: flex;
+    align-items: center;
     margin: 10px 0;
+}
+
+.sidebar ul li svg {
+    padding: 10px 15px;
 }
 
 .sidebar ul li a {
     text-decoration: none;
-    color: #fff;
+    color: #a2a2a2;
     font-size: 1.1em;
     display: block;
     padding: 10px 15px;
     border-radius: 5px;
     transition: background-color 0.3s, color 0.3s;
+    font-size: 16px;
 }
 
 
 .sidebar ul li a:hover {
-    background-color: #007bff;
+    background-color: #ccc;
     color: white;
 }
 
-.sidebar ul li a.active {
-    background-color: #007bff;
-    color: white;
+.sidebar ul li a:focus {
+    color: #007bff;
 }
 
 .sidebar-footer {
@@ -60,3 +67,42 @@
     color: #aaa;
     border-top: 1px solid #aaa;
 }
+.sublist {
+    list-style-type: none;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start !important;
+}
+
+.sublist li {
+    margin: 5px 0;
+}
+
+.mylist-header {
+    cursor: pointer;
+    color: #E4E4E4;
+    font-size: 20px;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.mylist-header:hover{
+    background-color: #ccc;
+    color: white;
+}
+
+.sidebar ul li .task-count {
+    background-color: #ffffff59;
+    color: #00000080;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    font-size: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+

@@ -1,11 +1,14 @@
 import React from 'react';
-
+import { useLocation } from 'react-router-dom';
 
 const MyList = () => {
+    const location = useLocation();
+    const listType = location.pathname.split('/').pop();
+
     return (
         <div>
-            <h1>MyList Page</h1>
-            <p>This is the about page.</p>
+            <h2>List Type: {listType}</h2>
+
         </div>
     );
 };
