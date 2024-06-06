@@ -10,9 +10,11 @@ const MyList = () => {
     const location = useLocation();
     const listType = location.pathname.split('/').pop();
 
+
     const [tasks, setTasks] = useState([]);
     const [selectedTask, setSelectedTask] = useState(null);
     const [newTask, setNewTask] = useState('');
+
 
     useEffect(() => {
         const storedTasks = JSON.parse(localStorage.getItem(listType)) || [];
@@ -20,14 +22,15 @@ const MyList = () => {
         setSelectedTask(storedTasks.length > 0 ? storedTasks[storedTasks.length - 1] : null);
     }, [listType]);
 
-
+    console.log("selectedTask", selectedTask);
+    console.log("selectedTask-listType", selectedTask ? selectedTask.type : "");
     const saveTasksToLocalStorage = (tasks) => {
         localStorage.setItem(listType, JSON.stringify(tasks));
     };
 
     const addTask = (taskContent) => {
         if (taskContent.trim()) {
-            const newTask = { id: uuidv4(), content: taskContent.trim() };
+            const newTask = { id: uuidv4(), content: taskContent.trim(), type: listType };
             const updatedTasks = [...tasks, newTask];
             setTasks(updatedTasks);
             setSelectedTask(newTask);
@@ -104,7 +107,7 @@ const MyList = () => {
                         </button>
                     </div>
                 </div>
-                {selectedTask && <DetailTask taskId={selectedTask.id} listType={listType} />}
+                {selectedTask && selectedTask.type === listType && <DetailTask taskId={selectedTask.id} listType={listType} />}
             </div>
         </div>
     );

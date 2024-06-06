@@ -52,15 +52,15 @@ const Sidebar = () => {
                 </li>
                 <li>
                     <FontAwesomeIcon icon={faCalendarDay} />
-                    <NavLink to="/myday">Today</NavLink><span class="task-count">5</span>
+                    <NavLink to="/myday">Today</NavLink><span className="task-count">5</span>
                 </li>
                 <li>
                     <FontAwesomeIcon icon={faCalendarWeek} />
-                    <NavLink to="/next7days">Next 7 Days</NavLink><span class="task-count">5</span>
+                    <NavLink to="/next7days">Next 7 Days</NavLink><span className="task-count">5</span>
                 </li>
                 <li>
                     <FontAwesomeIcon icon={faTasks} />
-                    <NavLink to="/alltasks">All Tasks</NavLink><span class="task-count">5</span>
+                    <NavLink to="/alltasks">All Tasks</NavLink><span className="task-count">5</span>
                 </li>
                 <li className="sublist">
                     <div onClick={toggleMyList} className="mylist-header">
@@ -70,15 +70,15 @@ const Sidebar = () => {
                         <ul >
                             <li>
                                 <NavLink to="/mylist/personal">Personal</NavLink>
-                                <span class="task-count">{taskCounts.personal}</span>
+                                <span className="task-count">{taskCounts.personal}</span>
                             </li>
                             <li>
                                 <NavLink to="/mylist/work">Work</NavLink>
-                                <span class="task-count">{taskCounts.work}</span>
+                                <span className="task-count">{taskCounts.work}</span>
                             </li>
                             <li>
                                 <NavLink to="/mylist/grocerylist">Grocery List</NavLink>
-                                <span class="task-count">{taskCounts.grocerylist}</span>
+                                <span className="task-count">{taskCounts.grocerylist}</span>
                             </li>
                         </ul>
                     )}

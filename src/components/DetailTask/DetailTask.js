@@ -5,14 +5,40 @@ import '../../assets/styles/DetailTask.css';
 
 const DetailTask = ({ taskId, listType }) => {
     const [task, setDetailTasks] = useState(null);
+    const [note, setNote] = useState('');
 
 
     useEffect(() => {
         const storedTasks = JSON.parse(localStorage.getItem(listType)) || {};
-        const detailTask = storedTasks.filter(task => task.id === taskId)[0];
-        setDetailTasks(detailTask);
-    }, [taskId, listType]); // Chỉ chạy effect này khi taskId hoặc listType thay đổi
+        let detailTask = null;
 
+        if (Array.isArray(storedTasks)) {
+            detailTask = storedTasks.find(task => task.id === taskId);
+        } else {
+            console.error('Stored tasks is not an array', storedTasks);
+        }
+        if (detailTask) {
+            setDetailTasks(detailTask);
+        } else {
+            console.warn(`Task with id ${taskId} not found`);
+            setDetailTasks(null);
+        }
+        setNote(detailTask?.note || '');
+    }, [taskId, listType]);
+
+    const saveNote = (newNote) => {
+        const storedTasks = JSON.parse(localStorage.getItem(listType)) || [];
+        const updatedTasks = storedTasks.map(task =>
+            task.id === taskId ? { ...task, note: newNote } : task
+        );
+        localStorage.setItem(listType, JSON.stringify(updatedTasks));
+        setDetailTasks(prevTask => ({ ...prevTask, note: newNote }));
+    };
+
+    const handleNoteChange = (e) => {
+        setNote(e.target.value);
+        saveNote(e.target.value);
+    };
 
     return (
         <div className="detailTask">
@@ -27,7 +53,7 @@ const DetailTask = ({ taskId, listType }) => {
                     <span><FontAwesomeIcon icon={faBoxArchive} /></span>
                 </div>
             </div>
-            <h2 className='detailTask-title'>{task.content}</h2>
+            <h2 className='detailTask-title'>{task ? task.content : 'Task not found'}</h2>
             <div className='detailTask-btn'>
                 <button className='btn btn-remind'>
                     <FontAwesomeIcon icon={faBell} />
@@ -46,7 +72,7 @@ const DetailTask = ({ taskId, listType }) => {
                 <div className="note-section">
                     <h3>Note</h3>
                     <textarea
-                        // value={note}
+
 
                         placeholder="Add a note"
                     />
