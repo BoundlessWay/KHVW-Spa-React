@@ -5,7 +5,7 @@ import '../../assets/styles/DetailTask.css';
 
 const DetailTask = ({ taskId, listType }) => {
     const [task, setDetailTasks] = useState(null);
-    // const [note, setNote] = useState('');
+    const [note, setNote] = useState('');
 
 
     useEffect(() => {
@@ -23,7 +23,7 @@ const DetailTask = ({ taskId, listType }) => {
             console.warn(`Task with id ${taskId} not found`);
             setDetailTasks(null);
         }
-        // setNote(detailTask?.note || '');
+        setNote(detailTask?.note || '');
     }, [taskId, listType]);
 
     console.log(task)

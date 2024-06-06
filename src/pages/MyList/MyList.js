@@ -28,7 +28,7 @@ const MyList = () => {
 
     const addTask = (taskContent) => {
         if (taskContent.trim()) {
-            const newTask = { id: uuidv4(), content: taskContent.trim(), type: listType };
+            const newTask = { id: uuidv4(), content: taskContent.trim(), type: listType, note: "" };
             const updatedTasks = [...tasks, newTask];
             setTasks(updatedTasks);
             setSelectedTask(newTask);

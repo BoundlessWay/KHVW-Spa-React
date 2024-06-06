@@ -2,8 +2,9 @@
 .mylist {
     display: flex;
     flex-direction: column;
-    height: 100%;
+
     padding: 48px;
+    min-height: 100vh;
 }
 
 .toolbar {
