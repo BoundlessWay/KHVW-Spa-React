@@ -5,7 +5,7 @@ import '../../assets/styles/DetailTask.css';
 
 const DetailTask = ({ taskId, listType }) => {
     const [task, setDetailTasks] = useState(null);
-    const [note, setNote] = useState('');
+    // const [note, setNote] = useState('');
 
 
     useEffect(() => {
@@ -23,22 +23,10 @@ const DetailTask = ({ taskId, listType }) => {
             console.warn(`Task with id ${taskId} not found`);
             setDetailTasks(null);
         }
-        setNote(detailTask?.note || '');
+        // setNote(detailTask?.note || '');
     }, [taskId, listType]);
 
-    const saveNote = (newNote) => {
-        const storedTasks = JSON.parse(localStorage.getItem(listType)) || [];
-        const updatedTasks = storedTasks.map(task =>
-            task.id === taskId ? { ...task, note: newNote } : task
-        );
-        localStorage.setItem(listType, JSON.stringify(updatedTasks));
-        setDetailTasks(prevTask => ({ ...prevTask, note: newNote }));
-    };
-
-    const handleNoteChange = (e) => {
-        setNote(e.target.value);
-        saveNote(e.target.value);
-    };
+    console.log(task)
 
     return (
         <div className="detailTask">
@@ -53,7 +41,7 @@ const DetailTask = ({ taskId, listType }) => {
                     <span><FontAwesomeIcon icon={faBoxArchive} /></span>
                 </div>
             </div>
-            <h2 className='detailTask-title'>{task ? task.content : 'Task not found'}</h2>
+            <h2 className='detailTask-title'>{task ? task.content : ''}</h2>
             <div className='detailTask-btn'>
                 <button className='btn btn-remind'>
                     <FontAwesomeIcon icon={faBell} />

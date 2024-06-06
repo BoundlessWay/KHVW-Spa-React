@@ -22,8 +22,6 @@ const MyList = () => {
         setSelectedTask(storedTasks.length > 0 ? storedTasks[storedTasks.length - 1] : null);
     }, [listType]);
 
-    console.log("selectedTask", selectedTask);
-    console.log("selectedTask-listType", selectedTask ? selectedTask.type : "");
     const saveTasksToLocalStorage = (tasks) => {
         localStorage.setItem(listType, JSON.stringify(tasks));
     };
