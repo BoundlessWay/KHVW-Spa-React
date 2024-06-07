@@ -62,7 +62,7 @@ const DetailTask = ({ taskId, listType }) => {
                 </button>
                 <button className='btn btn-type'>
                     <FontAwesomeIcon icon={faList} />
-                    Personal
+                    {task ? task.type : ''}
                 </button>
                 <button className='btn btn-tag'>
                     <FontAwesomeIcon icon={faTag} />

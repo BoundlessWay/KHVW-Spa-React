@@ -60,7 +60,9 @@ const Sidebar = () => {
                 </li>
                 <li>
                     <FontAwesomeIcon icon={faTasks} />
-                    <NavLink to="/alltasks">All Tasks</NavLink><span className="task-count">5</span>
+                    <NavLink to="/alltasks">All Tasks</NavLink><span className="task-count">
+                        {taskCounts.personal + taskCounts.work + taskCounts.grocerylist}
+                    </span>
                 </li>
                 <li className="sublist">
                     <div onClick={toggleMyList} className="mylist-header">
