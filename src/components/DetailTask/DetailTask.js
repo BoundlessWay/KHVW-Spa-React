@@ -19,14 +19,27 @@ const DetailTask = ({ taskId, listType }) => {
         }
         if (detailTask) {
             setDetailTasks(detailTask);
+            setNote(detailTask.note || '');
         } else {
             console.warn(`Task with id ${taskId} not found`);
             setDetailTasks(null);
         }
-        setNote(detailTask?.note || '');
     }, [taskId, listType]);
 
+    useEffect(() => {
+        if (task) {
+            const storedTasks = JSON.parse(localStorage.getItem(listType)) || [];
+            const updatedTasks = storedTasks.map(t =>
+                t.id === taskId ? { ...t, note: note } : t
+            );
+            localStorage.setItem(listType, JSON.stringify(updatedTasks));
+        }
+    }, [note, task, taskId, listType]);
+
     console.log(task)
+    const handleNoteChange = (e) => {
+        setNote(e.target.value);
+    };
 
     return (
         <div className="detailTask">
@@ -60,8 +73,8 @@ const DetailTask = ({ taskId, listType }) => {
                 <div className="note-section">
                     <h3>Note</h3>
                     <textarea
-
-
+                        value={note}
+                        onChange={handleNoteChange}
                         placeholder="Add a note"
                     />
                 </div>
